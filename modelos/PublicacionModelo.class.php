@@ -15,9 +15,13 @@ class PublicacionModelo extends Modelo{
     public function ObtenerPublicaciones(){
 
 
-        $sql = "SELECT nombreAutor, apellidoAutor, idPublicacion, fechaHora, cuerpo";
-        $sql .= " FROM usuario as u, publicacion as p";
-        $sql .= " WHERE u.id = p.idAutor ORDER BY fechaHora";
+      //  $sql = "SELECT nombreAutor, apellidoAutor, idPublicacion, fechaHora, cuerpo";
+       // $sql .= " FROM usuario as u, publicacion as p";
+        //$sql .= " WHERE u.id = p.idAutor ORDER BY fechaHora";
+
+     $sql = "SELECT username, idPublicacion, fechaHora";
+     $sql .= " FROM usuario as u, publicacion as p";
+     $sql .= " WHERE u.id = p.idAutor ORDER BY fechaHora";
     
         return $publicaciones = $this -> conexionBaseDeDatos -> query($sql)-> fetch_all(MYSQLI_ASSOC);
     

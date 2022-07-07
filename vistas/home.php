@@ -49,7 +49,7 @@ Usuario  <input type="text" name="usuario"> Password
 
 <?php foreach(($publicaciones=PublicacionControlador::ListarTodos()) as $publicacion) :?>
 
-    <b>Autor:</b> <?=  $publicacion['nombreAutor'] . " " . $publicacion['apellidoAutor'] ?>
+    <b>Creado por:</b> <?=  $publicacion['username'] ?>
     <B> Publicado:</B> <?=  $publicacion['fechaHora'] ?><br>
     <form action="/verPublicacion" method="post"><input type="hidden" name="idPublicacion" value= <?= $publicacion['idPublicacion'] ?>><button type="submit" <?= $desactivado; ?> >Ver</button></form><br>
 

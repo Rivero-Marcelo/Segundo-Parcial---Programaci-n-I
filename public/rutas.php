@@ -19,6 +19,8 @@
 
     Routes::Add("/verPublicacion", 'post', "PublicacionControlador::VerPublicacion");
 
+    Routes::Add("/logout", 'post', "SesionControlador::CerrarSesion");
+
 
 
 

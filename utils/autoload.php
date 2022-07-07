@@ -14,5 +14,7 @@
     require_once "../utils/render.php";
     require_once "../routing/routes.class.php";
 
+   
+    date_default_timezone_set("America/Montevideo");   
     session_start();
 

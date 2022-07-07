@@ -38,6 +38,9 @@ class PublicacionControlador{
 
     public static function VerPublicacion(){
 
+        $p = new PublicacionModelo();
+        
+
         
 
 
