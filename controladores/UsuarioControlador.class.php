@@ -6,7 +6,14 @@
             $u = new UsuarioModelo();
             $u -> Nombre = $context['post']['usuario'];
             $u -> Password = $context['post']['password'];
-            $u -> Guardar();
+            $u -> NombreAutor = $context['post']['nombreAutor'];
+            $u -> ApellidoAutor = $context['post']['apellidoAutor'];
+
+            if($u -> Guardar()){
+                render("nuevoUsuario",["error" => false]);
+            }else  echo "ERROR AL CREAR USUARIO";
         }
+    
+    
     }
 
