@@ -1,5 +1,7 @@
-
-
+<?php
+if(!isset($_SESSION['autenticado']))
+header("Location: /home");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,8 +36,6 @@
     <br>
 
 <a href="/home">Volver</a>
-
-
     
 </body>
 </html>
