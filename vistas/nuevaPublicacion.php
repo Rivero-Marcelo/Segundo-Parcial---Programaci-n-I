@@ -1,7 +1,4 @@
-<?php
-if(!isset($_SESSION['autenticado']))
-header("Location: /home");
-?>
+
 
 
 <!DOCTYPE html>

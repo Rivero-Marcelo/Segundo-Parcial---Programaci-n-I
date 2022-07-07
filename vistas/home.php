@@ -1,13 +1,43 @@
+<?php 
+
+if(isset($_SESSION['autenticado'])){
+    $noLogueado = "hidden";
+    $logueado = "";
+    $desactivado = "";
+}else{$noLogueado = ""; $logueado = "hidden"; $desactivado = "disabled";}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Segundo Parcial</title>
+    <title>Blog</title>
 </head>
 <body>
+    <br>
 
+<div><form <?=  $noLogueado ?>  action="/home" method="post">
+Usuario  <input type="text" name="usuario"> Password 
+<input type="password" name="password">  
+<input type="submit" value="Iniciar Sesión"></form><br>
+ 
+<?php if(isset($parametros['error']) && $parametros['error'] === true ) :?>
+        <div style="color: red;">Credenciales invalidas.</div>
+    <?php endif;?><br>
+
+    </div>
+
+<div <?= $noLogueado ?> ><a href="/nuevoUsuario"> Registrarse</a> </div>
+
+<div <?= $logueado ?> > <h3>USUARIO: <?= $_SESSION['nombreUsuario'] ?></h3></div> 
+<br>
+
+<div <?= $logueado ?>><form action="/logout" method="post"> <button type="submit">Cerrar Sesion</button></form></div>
+<br>
+
+<div <?= $logueado ?> > <a href="/nuevaPublicacion">Nueva Publicacion</a></div> 
 
 
 <div align="center"><h1> ----- BLOG HOME PAGE ----- </h1></div>
@@ -16,6 +46,19 @@
 <br><br>
 
 
-    
+
+<?php foreach(($publicaciones=PublicacionControlador::ListarTodos()) as $publicacion) :?>
+
+    <b>Autor:</b> <?=  $publicacion['nombreAutor'] . " " . $publicacion['apellidoAutor'] ?>
+    <B> Publicado:</B> <?=  $publicacion['fechaHora'] ?><br>
+    <form action="/verPublicacion" method="post"><input type="hidden" name="idPublicacion" value= <?= $publicacion['idPublicacion'] ?>><button type="submit" <?= $desactivado; ?> >Ver</button></form><br>
+
+<?php endforeach; ?>
+
+
+
+
+
+
 </body>
 </html>

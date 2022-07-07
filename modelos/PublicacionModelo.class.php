@@ -12,10 +12,6 @@ class PublicacionModelo extends Modelo{
 
 
 
-
-
-
-
     public function ObtenerPublicaciones(){
 
 
@@ -52,7 +48,8 @@ class PublicacionModelo extends Modelo{
 
     private function actualizar(){
 
-        
+
+
 
     }
 

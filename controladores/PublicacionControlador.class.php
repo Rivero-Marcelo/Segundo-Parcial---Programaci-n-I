@@ -36,6 +36,14 @@ class PublicacionControlador{
     }
 
 
+    public static function VerPublicacion(){
+
+        
+
+
+    }
+
+
 
 
 
