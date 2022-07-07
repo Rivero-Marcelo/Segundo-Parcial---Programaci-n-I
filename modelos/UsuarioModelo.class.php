@@ -57,6 +57,14 @@ require "../utils/autoload.php";
             $this -> Nombre = $fila['username'];
         }
 
+        public function ObtenerPorNombre($nombre){
+
+            $sql = "SELECT id FROM usuario where usuario.username = '" . $nombre ."'";
+            $id = $this -> conexionBaseDeDatos -> query($sql) -> fetch_assoc();
+            $this -> Id = $id['id'];
+
+        }
+
         public function Eliminar(){
             $sql = "DELETE FROM usuario WHERE id = " . $this ->Id;
             $this -> conexionBaseDeDatos -> query($sql);

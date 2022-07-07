@@ -12,6 +12,10 @@ class PublicacionModelo extends Modelo{
 
 
 
+
+
+
+
     public function ObtenerPublicaciones(){
 
 
@@ -21,6 +25,35 @@ class PublicacionModelo extends Modelo{
     
         return $publicaciones = $this -> conexionBaseDeDatos -> query($sql)-> fetch_all(MYSQLI_ASSOC);
     
+    }
+
+
+    public function Guardar(){
+
+        if($this -> idPublicacion == NULL) return $this -> insertar();
+        else $this -> actualizar();
+
+
+    }
+
+    private function insertar(){
+
+        $sql = "INSERT INTO publicacion (idAutor,fechaHora,cuerpo) VALUES (
+            '" . $this -> idAutor . "',
+            '" . $this -> fechaHora . "',
+            '" . $this -> cuerpo . "')";
+
+      if($this -> conexionBaseDeDatos -> query($sql)){
+        return true;
+         }else return false;
+
+         
+    }
+
+    private function actualizar(){
+
+        
+
     }
 
 
