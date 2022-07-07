@@ -13,6 +13,7 @@
 
 
     Routes::AddView("/nuevaPublicacion", "nuevaPublicacion");
+    Routes::Add("/verPublicacion", 'post', "PublicacionControlador::VerPublicacion");
 
 
 
