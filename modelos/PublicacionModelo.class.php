@@ -15,16 +15,23 @@ class PublicacionModelo extends Modelo{
     public function ObtenerPublicaciones(){
 
 
-      //  $sql = "SELECT nombreAutor, apellidoAutor, idPublicacion, fechaHora, cuerpo";
-       // $sql .= " FROM usuario as u, publicacion as p";
-        //$sql .= " WHERE u.id = p.idAutor ORDER BY fechaHora";
-
      $sql = "SELECT username, idPublicacion, fechaHora";
      $sql .= " FROM usuario as u, publicacion as p";
      $sql .= " WHERE u.id = p.idAutor ORDER BY fechaHora";
     
         return $publicaciones = $this -> conexionBaseDeDatos -> query($sql)-> fetch_all(MYSQLI_ASSOC);
     
+    }
+
+    public function ObtenerPublicacionPorId(){
+
+        $sql = "SELECT nombreAutor, apellidoAutor, idPublicacion, fechaHora, cuerpo";
+        $sql .= " FROM usuario as u, publicacion as p";
+        $sql .= " WHERE p.idPublicacion = " . $_POST['idPublicacion'];
+        $sql .= " AND p.idAutor = u.id";
+
+        return $publicacion = $this-> conexionBaseDeDatos -> query($sql) -> fetch_assoc();
+
     }
 
 
@@ -49,6 +56,10 @@ class PublicacionModelo extends Modelo{
 
          
     }
+
+
+
+
 
     private function actualizar(){
 

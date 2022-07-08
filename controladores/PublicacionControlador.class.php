@@ -39,11 +39,10 @@ class PublicacionControlador{
     public static function VerPublicacion(){
 
         $p = new PublicacionModelo();
-        
+        $publicacion = $p -> ObtenerPublicacionPorId();
+        render("verPublicacion", $publicacion);
 
-        
-
-
+                      
     }
 
 

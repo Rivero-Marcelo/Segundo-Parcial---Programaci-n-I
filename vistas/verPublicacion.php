@@ -13,6 +13,11 @@ header("Location: /home");
 </head>
 <body>
     
+<h2>AUTOR:</h2>
+<h2>FECHA DE PUBLICACION:</h2>
+
+
+
 
 
 
