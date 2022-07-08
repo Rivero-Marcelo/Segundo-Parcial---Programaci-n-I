@@ -19,6 +19,8 @@ header("Location: /home");
 
 <b>id Publicacion <?= $parametros['idPublicacion'] ?>:</b><p> <?= $parametros['cuerpo'] ?></p>
 
+<br><br><br><br>
+<a href="/home">Volver</a>
 
 </body>
 </html>

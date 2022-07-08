@@ -1,11 +1,4 @@
-<?php 
-
-if(isset($_SESSION['autenticado'])){
-    $noLogueado = "hidden";
-    $logueado = "";
-    $desactivado = "";
-}else{$noLogueado = ""; $logueado = "hidden"; $desactivado = "disabled";}
-?>
+<?php $entorno = Entorno(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +11,7 @@ if(isset($_SESSION['autenticado'])){
 <body>
     <br>
 
-<div><form <?=  $noLogueado ?>  action="/home" method="post">
+<div><form <?= $entorno['nologueado'] ?>  action="/home" method="post">
 Usuario  <input type="text" name="usuario"> Password 
 <input type="password" name="password">  
 <input type="submit" value="Iniciar Sesión"></form><br>
@@ -26,39 +19,29 @@ Usuario  <input type="text" name="usuario"> Password
 <?php if(isset($parametros['error']) && $parametros['error'] === true ) :?>
         <div style="color: red;">Credenciales invalidas.</div>
     <?php endif;?><br>
-
     </div>
 
-<div <?= $noLogueado ?> ><a href="/nuevoUsuario"> Registrarse</a> </div>
+<div <?= $entorno['nologueado'] ?> ><a href="/nuevoUsuario"> Registrarse</a> </div>
 
-<div <?= $logueado ?> > <h3>USUARIO: <?= $_SESSION['nombreUsuario'] ?></h3></div> 
+<div <?= $entorno['logueado'] ?> > <h3>USUARIO: <?= $_SESSION['nombreUsuario'] ?></h3></div> 
 <br>
 
-<div <?= $logueado ?>><form action="/logout" method="post"> <button type="submit">Cerrar Sesion</button></form></div>
+<div <?= $entorno['logueado'] ?>><form action="/logout" method="post"> <button type="submit">Cerrar Sesion</button></form></div>
 <br>
 
-<div <?= $logueado ?> > <a href="/nuevaPublicacion">Nueva Publicacion</a></div> 
-
+<div <?= $entorno['logueado'] ?> > <a href="/nuevaPublicacion">Nueva Publicacion</a></div> 
 
 <div align="center"><h1> ----- BLOG HOME PAGE ----- </h1></div>
 <br><br><br><br>
 <h2>PUBLICACIONES</h2>
 <br><br>
 
-
-
 <?php foreach(($publicaciones=PublicacionControlador::ListarTodos()) as $publicacion) :?>
-
     <b>Creado por:</b> <?=  $publicacion['username'] ?>
     <B> Publicado:</B> <?=  $publicacion['fechaHora'] ?><br>
-    <form action="/verPublicacion" method="post"><input type="hidden" name="idPublicacion" value= <?= $publicacion['idPublicacion'] ?>><button type="submit" <?= $desactivado; ?> >Ver</button></form><br>
-
+    <form action="/verPublicacion" method="post"><input type="hidden" name="idPublicacion" value= <?= $publicacion['idPublicacion'] ?>><button type="submit" 
+    <?= $entorno['desactivado'] ?> >Ver</button></form><br>
 <?php endforeach; ?>
-
-
-
-
-
 
 </body>
 </html>

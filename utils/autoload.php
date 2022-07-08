@@ -8,11 +8,13 @@
         
     });
 
+    require_once "../utils/homeEntorno.php";
     require_once "../config.php";
     require_once "../utils/statusCodes.php";
     require_once "../utils/sessions.php";
     require_once "../utils/render.php";
     require_once "../routing/routes.class.php";
+    
 
    
     date_default_timezone_set("America/Montevideo");   
