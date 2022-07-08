@@ -8,6 +8,7 @@ if(isset($_SESSION['autenticado'])){
         "nologueado" => "hidden",
         "logueado" => "",
         "desactivado" => "",
+        "usuario" => $_SESSION['nombreUsuario'],
     ];
     }else{
         $entorno = [
@@ -20,4 +21,3 @@ if(isset($_SESSION['autenticado'])){
         return $entorno;
     }
 
-?>

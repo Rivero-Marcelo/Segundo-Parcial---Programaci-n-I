@@ -9,9 +9,12 @@
             $u -> NombreAutor = $context['post']['nombreAutor'];
             $u -> ApellidoAutor = $context['post']['apellidoAutor'];
 
-            if($u -> Guardar()){
-                render("nuevoUsuario",["error" => false]);
-            }else render("nuevoUsuario",["error" => true]); 
+            if($u -> Guardar()){   
+               $parametros = ['error' => false];
+            }else $parametros = ['error' => true];
+       
+            render("nuevoUsuario", $parametros);
+       
         }
 
     }

@@ -9,8 +9,10 @@ class PublicacionControlador{
         $p -> fechaHora = date('Y-m-d H:i:s');
         $p -> cuerpo = $contexto['post']['cuerpo'];     
        
-        if($p -> Guardar()){render("nuevaPublicacion",["error" => false]);
-        }else  echo "ERROR AL PUBLICAR";
+        if($p -> Guardar()){ $parametros = ["error" => false];
+        }else $parametros = ["error" => true] ;
+    
+        render("nuevaPublicacion", $parametros);
     }
     
     public static function ListarTodos(){

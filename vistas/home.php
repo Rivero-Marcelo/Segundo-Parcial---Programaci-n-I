@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Blog - Segundo Parcial</title>
 </head>
 <body>
     <br>
@@ -23,7 +23,7 @@ Usuario  <input type="text" name="usuario"> Contraseña
 
 <div <?= $entorno['nologueado'] ?> ><a href="/nuevoUsuario"> Registrarse</a> </div>
 
-<div <?= $entorno['logueado'] ?> > <h3>USUARIO: <?= $_SESSION['nombreUsuario'] ?></h3></div> 
+<div <?= $entorno['logueado'] ?> > <h3>USUARIO: <?= $entorno['usuario'] ?></h3></div> 
 <br>
 
 <div <?= $entorno['logueado'] ?>><form action="/logout" method="post"> <button type="submit">Cerrar Sesion</button></form></div>
