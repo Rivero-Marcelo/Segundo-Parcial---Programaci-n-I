@@ -27,7 +27,7 @@ class PublicacionModelo extends Modelo{
 
         $sql = "SELECT nombreAutor, apellidoAutor, idPublicacion, fechaHora, cuerpo";
         $sql .= " FROM usuario as u, publicacion as p";
-        $sql .= " WHERE p.idPublicacion = " . $_POST['idPublicacion'];
+        $sql .= " WHERE p.idPublicacion = " . $_POST['idPublicacion']; 
         $sql .= " AND p.idAutor = u.id";
 
         return $publicacion = $this-> conexionBaseDeDatos -> query($sql) -> fetch_assoc();

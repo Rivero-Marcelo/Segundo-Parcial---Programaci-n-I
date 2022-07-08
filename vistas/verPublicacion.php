@@ -13,12 +13,11 @@ header("Location: /home");
 </head>
 <body>
     
-<h2>AUTOR:</h2>
-<h2>FECHA DE PUBLICACION:</h2>
+<h3><b> AUTOR:</b>  <?= $parametros['nombreAutor'] . " " . $parametros['apellidoAutor'] ?> </h3>
+<h3><b> Fecha de Publicación:</b> <?= $parametros['fechaHora'] ?> </h3>
+<b>--------------------------------------------------------------------------------</b><br><br>
 
-
-
-
+<b>id Publicacion <?= $parametros['idPublicacion'] ?>:</b><p> <?= $parametros['cuerpo'] ?></p>
 
 
 </body>
