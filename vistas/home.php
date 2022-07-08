@@ -12,7 +12,7 @@
     <br>
 
 <div><form <?= $entorno['nologueado'] ?>  action="/home" method="post">
-Usuario  <input type="text" name="usuario"> Password 
+Usuario  <input type="text" name="usuario"> Contraseña 
 <input type="password" name="password">  
 <input type="submit" value="Iniciar Sesión"></form><br>
  
@@ -29,7 +29,7 @@ Usuario  <input type="text" name="usuario"> Password
 <div <?= $entorno['logueado'] ?>><form action="/logout" method="post"> <button type="submit">Cerrar Sesion</button></form></div>
 <br>
 
-<div <?= $entorno['logueado'] ?> > <a href="/nuevaPublicacion">Nueva Publicacion</a></div> 
+<div <?= $entorno['logueado'] ?> > <a href="/nuevaPublicacion">Nueva Publicacion</a> </div> 
 
 <div align="center"><h1> ----- BLOG HOME PAGE ----- </h1></div>
 <br><br><br><br>

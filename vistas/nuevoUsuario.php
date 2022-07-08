@@ -22,6 +22,10 @@
 <?php if(isset($parametros['error']) && $parametros['error'] === false ) :?>
         <div style="color: red;">Usuario creado con exito.</div>
     <?php endif;?><br>
+
+    <?php if(isset($parametros['error']) && $parametros['error'] === true ) :?>
+        <div style="color: red;">Error al crear nuevo usuario, intente con otro nombre de usuario.</div>
+    <?php endif;?><br>
     
     <br>
 <a href="/home">Volver</a>

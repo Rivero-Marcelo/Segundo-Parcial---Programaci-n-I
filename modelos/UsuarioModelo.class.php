@@ -59,7 +59,7 @@ require "../utils/autoload.php";
 
         public function ObtenerPorNombre($nombre){
 
-            $sql = "SELECT id FROM usuario where usuario.username = '" . $nombre ."'";
+            $sql = "SELECT * FROM usuario where usuario.username = '" . $nombre ."'";
             $id = $this -> conexionBaseDeDatos -> query($sql) -> fetch_assoc();
             $this -> Id = $id['id'];
 

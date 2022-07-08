@@ -11,9 +11,8 @@
 
             if($u -> Guardar()){
                 render("nuevoUsuario",["error" => false]);
-            }else  echo "ERROR AL CREAR USUARIO";
+            }else render("nuevoUsuario",["error" => true]); 
         }
-    
-    
+
     }
 
